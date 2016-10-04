@@ -3,7 +3,15 @@ const http = require('http')
 const app = express()
 const Sequelize = require('sequelize')
 
-const db = new Sequelize()
+const db = new Sequelize('gp3-node-server', '', '', {
+  host: 'localhost',
+  dialect: 'postgres',
+  pool: {
+    max: 5,
+    min: 0,
+    idle: 10000
+  }
+})
 
 db.authenticate()
   .then(function(err) {

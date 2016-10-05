@@ -10,7 +10,10 @@
   "author": "George Paul",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.15.2",
+    "cors": "^2.8.1",
     "express": "^4.14.0",
+    "morgan": "^1.7.0",
     "nodemon": "^1.10.2",
     "pg": "^6.1.0",
     "pg-hstore": "^2.3.2",

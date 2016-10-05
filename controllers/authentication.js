@@ -20,6 +20,8 @@ exports.signup = function(req, res, next) {
         password: password
       })
 
+      user.password = user.setPassword(password)
+
       user.save()
       .then(function() {
         res.json({ user: user })

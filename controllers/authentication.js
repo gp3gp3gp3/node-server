@@ -10,7 +10,6 @@ exports.signup = function(req, res, next) {
 
   User.findOne({ where: { email: email }})
   .then(function(existingUser) {
-    console.log("this is existingUser", existingUser)
 
     if (existingUser) {
       return res.status(422).send({ error: 'Email is in use' })
@@ -23,8 +22,7 @@ exports.signup = function(req, res, next) {
 
       user.save()
       .then(function() {
-          console.log("i'm here")
-          res.json({ user: user })
+        res.json({ user: user })
       })
     }
   })

@@ -37,6 +37,12 @@ exports.signup = function(req, res, next) {
       .then(function() {
         res.json({ token: tokenForUser(user) })
       })
+      .catch(function(err) {
+        return next(err)
+      })
     }
+  })
+  .catch(function(err) {
+    return next(err)
   })
 }

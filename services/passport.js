@@ -21,4 +21,24 @@ const localLogin = new LocalStrategy(localOptions, function(email, password, don
   })
 })
 
+const jwtOptions = {
+  jwtFromRequest: ExtractJwt.fromHeader('authorization'),
+  secretOrKey: config.secret
+}
+
+const jwtLogin = new JwtStrategy(jwtOptions, function(payload, done) {
+  User.findById(payload.sub)
+  .then(function(user) {
+    if (user) {
+      done(null, user)
+    } else {
+      done(null, false)
+    }
+  })
+  .catch(function(err) {
+    return done(err, false)
+  })
+})
+
 passport.use(localLogin)
+passport.use(jwtLogin)

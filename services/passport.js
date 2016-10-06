@@ -19,6 +19,9 @@ const localLogin = new LocalStrategy(localOptions, function(email, password, don
       return done(null, false)
     }
   })
+  .catch(function(err) {
+    return done(null, err)
+  })
 })
 
 const jwtOptions = {

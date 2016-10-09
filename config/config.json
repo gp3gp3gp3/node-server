@@ -17,7 +17,7 @@
     "username": "",
     "password": "",
     "database": "gp3-node-server",
-    "host": "127.0.0.1",
+    "host": "gp3-node-server.herokuapp.com",
     "dialect": "postgres"
   }
 }

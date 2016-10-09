@@ -3,7 +3,7 @@ const User = require('../models').User
 
 function tokenForUser(user) {
   const timestamp = new Date().getTime()
-  return jwt.encode({ sub: user.id, iat: timestamp }, ENV['SECRET'])
+  return jwt.encode({ sub: user.id, iat: timestamp }, process.env.SECRET)
 }
 
 exports.signin = function(req, res, next) {

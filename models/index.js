@@ -22,6 +22,10 @@ if (config.use_env_variable) {
     logging: true
   });
 } else {
+  console.log("***************************************************")
+  console.log("I'm in the else block, problem is DATABASE_URL is not being accessed")
+  console.log("***************************************************")
+
   var sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 

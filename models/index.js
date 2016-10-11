@@ -10,6 +10,7 @@ var db        = {};
 
 console.log("***************************************************")
 console.log("I'm the config object", config)
+console.log("I'm the DATABASE_URL", process.env.DATABASE_URL)
 console.log("***************************************************")
 
 if (config.use_env_variable) {

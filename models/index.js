@@ -8,6 +8,10 @@ var env       = process.env.NODE_ENV || 'development';
 var config    = require(__dirname + '/../config/config.json')[env];
 var db        = {};
 
+console.log("***************************************************")
+console.log("I'm the config object", config)
+console.log("***************************************************")
+
 if (config.use_env_variable) {
   console.log("***************************************************")
   console.log("I'm in the heroku server process, problem is not DATABASE_URL env variable")

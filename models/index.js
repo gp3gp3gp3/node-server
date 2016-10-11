@@ -27,7 +27,12 @@ if (config.use_env_variable) {
   console.log("I'm in the else block, problem is DATABASE_URL is not being accessed")
   console.log("***************************************************")
 
-  var sequelize = new Sequelize(config.database, config.username, config.password, config);
+  // var sequelize = new Sequelize(config.database, config.username, config.password, config);
+  var sequelize = new Sequelize(process.env.DATABASE_URL, {
+    dialect: 'postgres',
+    protocol: 'postgres',
+    logging: true
+  });
 }
 
 fs

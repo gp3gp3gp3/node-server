@@ -9,6 +9,9 @@ var config    = require(__dirname + '/../config/config.json')[env];
 var db        = {};
 
 if (config.use_env_variable) {
+  console.log("***************************************************")
+  console.log("I'm in the heroku server process, problem is not DATABASE_URL env variable")
+  console.log("***************************************************")
   var sequelize = new Sequelize(process.env.DATABASE_URL, {
     dialect: 'postgres',
     protocol: 'postgres',

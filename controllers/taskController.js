@@ -31,3 +31,18 @@ exports.create = function(req, res, next) {
     return next(err)
   })
 }
+
+exports.delete = function(req, res, next) {
+  Models.Task.findById(req.params.id)
+  .then(function(task) {
+    if (task) {
+      return task.destroy()
+    } else {
+      return res.status(422).send({ error: 'No task found' })
+    }
+  }).then(function() {
+    return res.status(200).send({ message: 'Task deleted' })
+  }).catch(function(err) {
+    return next(err)
+  })
+}

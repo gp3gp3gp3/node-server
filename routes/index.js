@@ -11,6 +11,8 @@ const requireAuth = passport.authenticate('jwt', { session: false })
 
 router.get('/', requireAuth, Tasks.index)
 router.post('/', requireAuth, Tasks.create)
+router.delete('/tasks/:id', requireAuth, Tasks.delete)
+router.put('/tasks/:id', requireAuth, Tasks.update)
 
 router.post('/signup', Authentication.signup)
 router.post('/signin', requireSignIn, Authentication.signin)
